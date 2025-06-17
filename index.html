@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+
+  <title>Budget Tracker</title>
+</head>
+
+<body>
+  <div class="header-container">
+    <h1>My Monthly Budget</h1>
+    <h2 id="amount-el">Amount left:</h2>
+  </div>
+  
+  <div class="entry-container">
+    <form>
+      <label for="description-input">Description:</label><br>
+      <input type="text" id="description-input" name="description-input"><br>
+      <label for="amount-input">Amount:</label><br>
+      <input type="number" id="amount-input" name="amount-input"><br>
+      <input type="radio" id="personal" name="type-input" value="Personal">
+      <label for="personal">Personal</label><br>
+      <input type="radio" id="monthly-expense" name="type-input" value="Monthly Expense">
+      <label for="monthly-expense">Monthly Expense</label><br>
+      <input type="submit" value="Submit">
+    </form>
+
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
