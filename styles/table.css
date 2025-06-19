@@ -1,0 +1,38 @@
+.table-container {
+    margin-top: 50px;
+    border: 1px solid rgb(235, 235, 235);
+    background-color: rgb(247, 247, 247);
+    border-radius: 5px;
+}
+
+.spending-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.spending-table th,
+.spending-table td {
+    border: 1px solid rgb(199, 199, 199);
+    padding: 8px;
+}
+
+.spending-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #cf88f8;
+  color: white;
+}
+
+.spending-table tr:nth-child(even) {
+    background-color: #e6d4f0;
+}
+.spending-table tr:nth-child(odd) {
+    background-color: #fefdff;
+}
+.spending-table tr:hover {
+    background-color: #dbaef1;
+}

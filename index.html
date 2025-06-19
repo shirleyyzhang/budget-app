@@ -4,30 +4,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/entry.css">
+  <link rel="stylesheet" href="styles/table.css">
 
   <title>Budget Tracker</title>
 </head>
 
 <body>
-  <div class="header-container">
-    <h1>My Monthly Budget</h1>
-    <h2 id="amount-el">Amount left:</h2>
-  </div>
+  <header class="header">
+    <h1 class="budget-header">My Monthly Budget</h1>
+    <h2 class="amount-header" id="amount-el">Amount left:</h2>
+  </header>
   
   <div class="entry-container">
-    <form>
-      <label for="description-input">Description:</label><br>
-      <input type="text" id="description-input" name="description-input"><br>
-      <label for="amount-input">Amount:</label><br>
-      <input type="number" id="amount-input" name="amount-input"><br>
-      <input type="radio" id="personal" name="type-input" value="Personal">
-      <label for="personal">Personal</label><br>
-      <input type="radio" id="monthly-expense" name="type-input" value="Monthly Expense">
-      <label for="monthly-expense">Monthly Expense</label><br>
-      <input type="submit" value="Submit">
-    </form>
+    <div class="entry-header">
+      <h2>New entry</h2>
+    </div>
+    <div class="entry-form-container">
+      <form id="entry-form">
+        <label for="description-input">Description:</label><br>
+        <input type="text" id="description-input" name="description-input" placeholder="Ex. Dinner with friends"><br>
+        
+        <label for="amount-input">Amount:</label><br>
+        <input type="number" id="amount-input" name="amount-input"><br>
+        
+        <label for="type-input">Type of expense</label><br>
+        <input type="radio" id="personal-expense" name="type-input" value="Personal">
+        <label for="personal">Personal</label><br>
+        <input type="radio" id="monthly-expense" name="type-input" value="Monthly Expense">
+        <label for="monthly-expense">Monthly Expense</label><br>
+        
+        <input type="submit" id="submit-btn" value="Submit">
+      </form>
+    </div>
+    
+  </div>
 
+  <div class="table-container">
+    <h2>Personal Spending</h2>
+    <table class="spending-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody id="personal-spending-table">
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-container">
+    <h2>Monthly Expenses</h2>
+    <table class="spending-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody id="monthly-expense-table">
+      </tbody>
+    </table>
   </div>
 
   <script src="index.js"></script>
