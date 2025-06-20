@@ -31,7 +31,7 @@ Just a simple browser app - No server or build tools required
 - Click the 🗑️ icon next to any entry to delete that entry.
 
 ### 4. Delete All Entries
-- Double-click **"DELETE ALL"** button to remove all saved entries for the month.
+- Double-click **"DELETE ALL"** button to remove all saved entries when resetting for a new month.
 
 ### 5. Reset Everything
 - Double-click **"RESET BUDGET"** button at the top-right to:
