@@ -1,17 +1,18 @@
 # Budget Tracker
 
-A simple browser-based app for tracking monthly expenses, built to brush up my HTML, CSS, and JavaScript skills and track my spending. Users can:
+A simple browser-based app for tracking monthly expenses, built to brush up my HTML, CSS, and JavaScript skills and (bonus:) track my spending. Users can:
 
 - Set a monthly budget
 - Add/delete personal and monthly (essential) expense entries
 - See updated remaining budget in real time
     - Note: budget is deducted with entries filtered to the current month
-- Reset all entries or budget amount any time
+- Reset all entries or budget amount at any time
 
 ## Setup
 
 1. Clone or download the repository
-2. Open `index.html` in your browser
+2. Open `index.html` in your browser.
+
 Just a simple browser app - No server or build tools required 
 
 ## Usage
