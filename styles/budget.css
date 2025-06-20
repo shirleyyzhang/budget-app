@@ -1,0 +1,22 @@
+#budget-section {
+    padding: 70px 100px;
+}
+
+#budget-form input[type=number] {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+#budget-form input[type=submit] {
+    margin-top: 8px;
+    width: 25%;
+    padding: 12px 20px;
+    color: white;
+    background-color: rgb(49, 155, 58);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
