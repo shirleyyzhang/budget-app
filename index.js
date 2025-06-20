@@ -54,26 +54,42 @@ function render(data) {
 
     for (i = 0; i < data.length; i++) {
         totalSpent += parseFloat(data[i].amount)
-        if (data[i].type === 'Personal' && data[i].date.getFullYear === now.getFullYear && data[i].date.getMonth === now.getMonth) {
+
+        const entryDate = new Date(data[i].date);
+        const sameMonth = entryDate.getFullYear() === now.getFullYear() && entryDate.getMonth() === now.getMonth();
+
+        if (data[i].type === 'Personal' && sameMonth) {
             itemsPersonal += `
                 <tr>
                     <td>${data[i].date}</td>
                     <td>${data[i].description}</td>
                     <td>${data[i].amount}</td>
+                    <td><button class="delete-entry-btn" data-id="${data[i].id}">🗑️</button></td>
                 </tr>
             `
-        } else {
+        } else if (data[i].type === 'Monthly Expense' && sameMonth) {
             itemsMonthly += `
                 <tr>
                     <td>${data[i].date}</td>
                     <td>${data[i].description}</td>
                     <td>${data[i].amount}</td>
+                    <td><button class="delete-entry-btn" data-id="${data[i].id}">🗑️</button></td>
                 </tr>
             `
         }
     }
     personalTable.innerHTML = itemsPersonal
     monthlyTable.innerHTML = itemsMonthly
+
+    const deleteButtons = document.querySelectorAll(".delete-entry-btn");
+    deleteButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const idToDelete = parseInt(button.getAttribute("data-id"));
+            expenses = expenses.filter(entry => entry.id !== idToDelete);
+            localStorage.setItem("expenses", JSON.stringify(expenses));
+            render(expenses);
+        });
+    });
 
     const amountLeft = budget - totalSpent
     amountEl.textContent = "Amount left: " + amountLeft.toFixed(2)
@@ -85,6 +101,7 @@ entryForm.addEventListener("submit", function(event) {
     const formSelectedType = document.querySelector('input[name="type-input"]:checked');
 
     const entry = {
+        id: Date.now(),
         description: formDescriptionEl.value,
         amount: formAmountEl.value,
         type: formSelectedType.value,
