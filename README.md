@@ -8,8 +8,12 @@ A simple browser-based app for tracking monthly expenses, built to brush up my H
     - Note: budget is deducted with entries filtered to the current month
 - Reset all entries and/or budget amount at the end of the month (or any time)
 
-## Setup
+## Live Site
 
+You can access the budget tracker here: 
+[https://shirleyyzhang.github.io/budget-app](https://shirleyyzhang.github.io/budget-app)
+
+..or set up yourself:
 1. Clone or download the repository
 2. Open `index.html` in your browser.
 
