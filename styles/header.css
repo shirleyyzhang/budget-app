@@ -1,28 +1,39 @@
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #65a6f0fa;
+  color: white;
+  padding: 20px;
   text-align: center;
-  padding: 5px;
-  background-color: #f0f0f0;
-  border-radius: 5px;
-  top: -50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.budget-header {
+.budget-header h1 {
   margin: 0;
+  font-size: 28px;
+}
+
+#amount-el {
+  font-weight: normal;
+  margin-top: 5px;
+  font-size: 18px;
 }
 
 #reset-btn {
   position: absolute;
-  top: 10px;
+  top: 15px;
   right: 20px;
-  padding: 8px 12px;
-  background-color: #2a833896;
+  background-color: #ffffff22;
   color: white;
   border: none;
   border-radius: 4px;
+  padding: 6px 12px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 #reset-btn:hover {
-  background-color: #c0392b;
+  background-color: #ffffff44;
 }
