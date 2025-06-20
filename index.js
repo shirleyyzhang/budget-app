@@ -1,4 +1,5 @@
 let expenses = []
+now = new Date
 
 // const entryContainer
 const amountEl = document.getElementById("amount-el")
@@ -53,7 +54,7 @@ function render(data) {
 
     for (i = 0; i < data.length; i++) {
         totalSpent += parseFloat(data[i].amount)
-        if (data[i].type === 'Personal') {
+        if (data[i].type === 'Personal' && data[i].date.getFullYear === now.getFullYear && data[i].date.getMonth === now.getMonth) {
             itemsPersonal += `
                 <tr>
                     <td>${data[i].date}</td>
@@ -110,7 +111,7 @@ deleteBtn.addEventListener("dblclick", function () {
 resetBtn.addEventListener("dblclick", function() {
     localStorage.removeItem("budget")
     budget = null
-    amountEl.textContent = "Amount left: " + amountLeft.toFixed(2)
+    amountEl.textContent = "Amount left: "
     startApp()
 })
 
