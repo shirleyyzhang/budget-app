@@ -4,10 +4,9 @@ let expenses = []
 const entryForm = document.getElementById("entry-form")
 const formDescriptionEl = document.getElementById('description-input')
 const formAmountEl = document.getElementById('amount-input')
-// const formSelectedType = document.querySelector('input[name="type-input"]:checked')
-// const submitBtn = document.getElementById("submit-btn")
 const personalTable = document.getElementById("personal-spending-table")
 const monthlyTable = document.getElementById("monthly-expense-table")
+const deleteBtn = document.getElementById("delete-btn")
 
 const expensesLocalStorage = JSON.parse(localStorage.getItem("expenses"))
 
@@ -66,5 +65,12 @@ entryForm.addEventListener("submit", function(event) {
 
     localStorage.setItem("expenses", JSON.stringify(expenses))
     console.log(expenses)
+    render(expenses)
+})
+
+
+deleteBtn.addEventListener("dblclick", function () {
+    localStorage.clear()
+    expenses = []
     render(expenses)
 })
