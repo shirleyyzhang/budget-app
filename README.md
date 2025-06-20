@@ -6,7 +6,7 @@ A simple browser-based app for tracking monthly expenses, built to brush up my H
 - Add/delete personal and monthly (essential) expense entries
 - See updated remaining budget in real time
     - Note: budget is deducted with entries filtered to the current month
-- Reset all entries or budget amount at any time
+- Reset all entries and/or budget amount at the end of the month (or any time)
 
 ## Setup
 
