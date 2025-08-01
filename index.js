@@ -1,5 +1,5 @@
 let expenses = []
-now = new Date
+const now = new Date()
 
 // const entryContainer
 const amountEl = document.getElementById("amount-el")
@@ -53,6 +53,7 @@ function render(data) {
     let totalSpent = 0
 
     for (i = 0; i < data.length; i++) {
+        console.log(i, ":", data[i].amount)
         totalSpent += parseFloat(data[i].amount)
 
         const entryDate = new Date(data[i].date);
@@ -61,7 +62,7 @@ function render(data) {
         if (data[i].type === 'Personal' && sameMonth) {
             itemsPersonal += `
                 <tr>
-                    <td>${data[i].date}</td>
+                    <td>${new Date(data[i].date).toLocaleDateString()}</td>
                     <td>${data[i].description}</td>
                     <td>${data[i].amount}</td>
                     <td><button class="delete-entry-btn" data-id="${data[i].id}">🗑️</button></td>
@@ -70,7 +71,7 @@ function render(data) {
         } else if (data[i].type === 'Monthly Expense' && sameMonth) {
             itemsMonthly += `
                 <tr>
-                    <td>${data[i].date}</td>
+                    <td>${new Date(data[i].date).toLocaleDateString()}</td>
                     <td>${data[i].description}</td>
                     <td>${data[i].amount}</td>
                     <td><button class="delete-entry-btn" data-id="${data[i].id}">🗑️</button></td>
@@ -92,6 +93,7 @@ function render(data) {
     });
 
     const amountLeft = budget - totalSpent
+    console.log("budget:", budget, "totalSpent:", totalSpent)
     amountEl.textContent = "Amount left: " + amountLeft.toFixed(2)
 }
 
@@ -99,13 +101,17 @@ function render(data) {
 entryForm.addEventListener("submit", function(event) {
     event.preventDefault()
     const formSelectedType = document.querySelector('input[name="type-input"]:checked');
+    if (!formSelectedType) {
+        alert("Please select a type of expense.");
+        return;
+    }
 
     const entry = {
         id: Date.now(),
         description: formDescriptionEl.value,
         amount: formAmountEl.value,
         type: formSelectedType.value,
-        date: new Date().toLocaleDateString()
+        date: new Date().toISOString()
     }
 
     expenses.push(entry)
@@ -127,7 +133,9 @@ deleteBtn.addEventListener("dblclick", function () {
 
 resetBtn.addEventListener("dblclick", function() {
     localStorage.removeItem("budget")
+    localStorage.removeItem("expenses")
     budget = null
+    expenses = []
     amountEl.textContent = "Amount left: "
     startApp()
 })
